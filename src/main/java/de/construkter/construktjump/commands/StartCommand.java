@@ -3,6 +3,7 @@ package de.construkter.construktjump.commands;
 import de.construkter.construktjump.ConstruktJump;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,6 +17,9 @@ public class StartCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player && commandSender.hasPermission("*")) {
             Player p = (Player) commandSender;
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                player.setGameMode(GameMode.ADVENTURE);
+            }
             new BukkitRunnable() {
                 int countdown = 10;
 

@@ -10,6 +10,7 @@ public final class ConstruktJump extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         getServer().getPluginManager().registerEvents(new DisableDefaultEvents(), this);
         getCommand("lobby").setExecutor(new LobbyCommand());
         getCommand("hub").setExecutor(new LobbyCommand());
